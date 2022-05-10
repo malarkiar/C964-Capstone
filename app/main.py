@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request
-import model
 
 app = Flask(__name__)
 
@@ -17,6 +16,3 @@ def submit():
     # .py -> HTML
     return render_template("submit.html", n = name)
 
-
-if __name__ == "__main__":
-    app.run(debug=True)
