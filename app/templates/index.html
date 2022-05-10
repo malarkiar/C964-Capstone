@@ -1,14 +1,27 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Crypto Correlation</title>
-</head>
-<body>
-    <h1>Enter your name</h1>
-    <form action="/sub" method="post">
-        <input type="text" name="username" placeholder="username">
-        <input type="submit">
-    </form>
-</body>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <title>Home</title>
+    </head>
+    <body>
+
+        <form action="/correlated-assets/" method="POST">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" name="crypto" placeholder="Enter Asset Code Here" aria-label="Crypto To Correlate" aria-describedby="button-addon2">
+                <input type="submit" class="btn btn-outline-secondary" value="Get Correlated Assets">
+            </div>
+        </form>
+
+        <form action="/price-prediction/" method="POST">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" name="crypto" placeholder="Enter Asset Code Here" aria-label="Crypto To Correlate" aria-describedby="button-addon2">
+                <input type="range" class="form-range" name="period" min="0" max="52" step="1" id="customRange3">
+                <input type="submit" class="btn btn-outline-secondary" value="Get Price Prediction">
+            </div>
+        </form>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    </body>
 </html>
