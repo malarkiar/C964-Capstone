@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from app.functions import getCorrelatedAssets
+from app.functions import get_results
 
 app = Flask(__name__)
 
@@ -10,7 +10,8 @@ def home():
 
 
 @app.route("/results/", methods=["POST"])
-def returnResults():
+def return_results():
     asset = request.form["asset"]
     value = request.form["value"]
-    return render_template("return-results.html", a=asset, v=value)
+    predictions = get_results(asset, value)
+    return render_template("return-results.html", p=predictions)

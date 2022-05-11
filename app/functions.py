@@ -1,21 +1,31 @@
-def getCorrelatedAssets():
+def get_results(asset, value):
+    q_asset = get_most_correlated_asset(asset)
+    b_predict = predict_price(asset)
+    q_predict = predict_price(q_asset)
+    p_delta = get_prediction_delta(b_predict, q_predict)
+
+    return [{
+        "bAsset": asset,
+        "qAsset": q_asset['symbol'],
+        "bqCorrelation": q_asset['correlation'],
+        "amount": value,
+        "bPredict": b_predict,
+        "qPredict": q_predict,
+        "predictDelta": p_delta
+    }]
+
+
+def get_most_correlated_asset(asset):
     return {
-        "btc": {
-            "eth": {
-                    "rAsset": "ETH",
-                    "cRatio": 0.44,
-                    "eReturn%": None,
-                    "eReturn": None,
-                    "eReturn%Delta": None,
-                    "eReturnDelta": None
-            }
-        }
+        "symbol": "ETH",
+        "correlation": 0.88
     }
 
 
-def appendPredictions(asset_list, r_amount):
-    asset_list['btc'][0]['eReturn%'] = '+7%'
-    asset_list['btc'][0]['eReturn'] = '+201'
-    asset_list['btc'][0]['eReturn%Delta'] = '-1%'
-    asset_list['btc'][0]['eReturnDelta'] = '-28'
-    return asset_list
+def predict_price(asset):
+    price_prediction = 1000
+    return price_prediction
+
+
+def get_prediction_delta(b_predict, q_predict):
+    return (q_predict/b_predict - 1) * 100
