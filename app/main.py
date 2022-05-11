@@ -1,15 +1,16 @@
 from flask import Flask, render_template, request
-from app.functions import getCorrelatedAssets, appendPredictions
+from app.functions import getCorrelatedAssets
 
 app = Flask(__name__)
 
-@app.route("/", methods=["GET", "POST"])
+
+@app.route("/", methods=["GET"])
 def home():
-    asset_list = getCorrelatedAssets()
-    if request.method == 'POST':
-        r_amount = request.form["r_amount"]
-        asset_list = appendPredictions(asset_list, r_amount)
-    return render_template("index.html", list=asset_list)
+    return render_template("index.html")
 
 
-
+@app.route("/results/", methods=["POST"])
+def returnResults():
+    asset = request.form["asset"]
+    value = request.form["value"]
+    return render_template("return-results.html", a=asset, v=value)
