@@ -1,27 +1,145 @@
 <!doctype html>
 <html lang="en">
     <head>
+        <style>
+            .myDiv {
+                height: 50%;
+                width: 75%;
+                align-items: center;
+                justify-content: center;
+                margin: auto;
+                transform: translate(0, 10%);
+            }
+            .myTabs {
+                padding-top: 20px;
+                padding-bottom: 20px;
+                width: 40%;
+            }
+        </style>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <title>Home</title>
     </head>
     <body>
+        <div class="myDiv">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="btc-tab" data-bs-toggle="tab" data-bs-target="#btc" type="button" role="tab" aria-controls="btc" aria-selected="true">BTC</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="eth-tab" data-bs-toggle="tab" data-bs-target="#eth" type="button" role="tab" aria-controls="eth" aria-selected="false">ETH</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="bnb-tab" data-bs-toggle="tab" data-bs-target="#bnb" type="button" role="tab" aria-controls="bnb" aria-selected="false">BNB</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="xrp-tab" data-bs-toggle="tab" data-bs-target="#xrp" type="button" role="tab" aria-controls="xrp" aria-selected="false">XRP</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="sol-tab" data-bs-toggle="tab" data-bs-target="#sol" type="button" role="tab" aria-controls="sol" aria-selected="false">SOL</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="ada-tab" data-bs-toggle="tab" data-bs-target="#ada" type="button" role="tab" aria-controls="ada" aria-selected="false">ADA</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="avax-tab" data-bs-toggle="tab" data-bs-target="#avax" type="button" role="tab" aria-controls="avax" aria-selected="false">AVAX</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="dot-tab" data-bs-toggle="tab" data-bs-target="#dot" type="button" role="tab" aria-controls="dot" aria-selected="false">DOT</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="trx-tab" data-bs-toggle="tab" data-bs-target="#trx" type="button" role="tab" aria-controls="trx" aria-selected="false">TRX</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="matic-tab" data-bs-toggle="tab" data-bs-target="#matic" type="button" role="tab" aria-controls="matic" aria-selected="false">MATIC</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="luna-tab" data-bs-toggle="tab" data-bs-target="#luna" type="button" role="tab" aria-controls="luna" aria-selected="false">LUNA</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="near-tab" data-bs-toggle="tab" data-bs-target="#near" type="button" role="tab" aria-controls="near" aria-selected="false">NEAR</button>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <form method="post">
+                    <div class="tab-pane fade show active myTabs" id="btc" role="tabpanel" aria-labelledby="btc-tab">
+                        <p>{{ list }}</p>
+                        <div class="input-group flex-nowrap">
+                            <span class="input-group-text" id="addon-wrapping">$</span>
+                            <input type="text" name="r_amount" class="form-control" placeholder="Amount to be rehypothecated" aria-label="r_amount" aria-describedby="addon-wrapping">
+                            <input class="btn btn-outline-secondary" type="submit" name="Get Predicted Value" id="inlineRadio3" value="Get Predicted Value">
+                        </div>
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th scope="col">rAsset</th>
+                                <th scope="col">cRatio</th>
+                                <th scope="col">eReturn%</th>
+                                <th scope="col">eReturn</th>
+                                <th scope="col">eReturn%Delta</th>
+                                <th scope="col">eReturnDelta</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">eth</th>
+                                <td>5</td>
+                                <td>qq</td>
+                                <td>11</td>
+                                <td>11</td>
+                                <td>11</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
 
-        <form action="/correlated-assets/" method="POST">
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" name="crypto" placeholder="Enter Asset Code Here" aria-label="Crypto To Correlate" aria-describedby="button-addon2">
-                <input type="submit" class="btn btn-outline-secondary" value="Get Correlated Assets">
-            </div>
-        </form>
+                <div class="tab-pane fade" id="eth" role="tabpanel" aria-labelledby="eth-tab">
+                    ETH
+                </div>
 
-        <form action="/price-prediction/" method="POST">
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" name="crypto" placeholder="Enter Asset Code Here" aria-label="Crypto To Correlate" aria-describedby="button-addon2">
-                <input type="range" class="form-range" name="period" min="0" max="52" step="1" id="customRange3">
-                <input type="submit" class="btn btn-outline-secondary" value="Get Price Prediction">
+                <div class="tab-pane fade" id="bnb" role="tabpanel" aria-labelledby="bnb-tab">
+                    BNB
+                </div>
+
+                <div class="tab-pane fade" id="xrp" role="tabpanel" aria-labelledby="xrp-tab">
+                    XRP
+                </div>
+
+                <div class="tab-pane fade" id="sol" role="tabpanel" aria-labelledby="sol-tab">
+                    SOL
+                </div>
+
+                <div class="tab-pane fade" id="ada" role="tabpanel" aria-labelledby="ada-tab">
+                    ADA
+                </div>
+
+                <div class="tab-pane fade" id="avax" role="tabpanel" aria-labelledby="avax-tab">
+                    AVAX
+                </div>
+
+                <div class="tab-pane fade" id="dot" role="tabpanel" aria-labelledby="dot-tab">
+                    DOT
+                </div>
+
+                <div class="tab-pane fade" id="trx" role="tabpanel" aria-labelledby="trx-tab">
+                    TRX
+                </div>
+
+                <div class="tab-pane fade" id="matic" role="tabpanel" aria-labelledby="matic-tab">
+                    MATIC
+                </div>
+
+                <div class="tab-pane fade" id="luna" role="tabpanel" aria-labelledby="luna-tab">
+                    LUNA
+                </div>
+
+                <div class="tab-pane fade" id="near" role="tabpanel" aria-labelledby="near-tab">
+                    NEAR
+                </div>
             </div>
-        </form>
+        </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>
 </html>
