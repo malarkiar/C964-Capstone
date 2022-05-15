@@ -2,13 +2,13 @@ service: crypto-correlation
 frameworkVersion: '3'
 provider:
   name: aws
-  runtime: python3.8
+  runtime: python3.7
   lambdaHashingVersion: '20201221'
 
 functions:
-  getCorrelatedAssets:
+  correlationLambda:
     handler: lambda-handler.handle
     events:
       - http:
-          path: /
-          method: get
+          path: /correlated-assets
+          method: post
