@@ -6,14 +6,18 @@ def get_results(asset, amount):
     q_predict = predict_price(q_asset)
     p_delta = get_prediction_delta(b_predict, q_predict)
 
+
     return [{
         "bAsset": asset,
-        "qAsset": q_asset.get("symbol"),
-        "bqCorrelation": q_asset.get("correlation"),
+        "qAsset": q_asset['symbol'],
+        "bqCorrelation": q_asset['correlation'],
         "amount": amount,
-        "bPredict": b_predict,
-        "qPredict": q_predict,
-        "predictDelta": p_delta
+        "bPredictMin": b_predict['min'],
+        "bPredictMax": b_predict['max'],
+        "qPredictMin": q_predict['min'],
+        "qPredictMax": q_predict['max'],
+        "predictDeltaMin": p_delta['min'],
+        "predictDeltaMax": p_delta['max']
     }]
 
 
@@ -26,7 +30,9 @@ def get_most_correlated_asset(asset):
 
 def predict_price(asset):
     price_prediction = 1000
-    return price_prediction
+    uncertainty = 0.04
+
+    return {'prediction': price_prediction, 'uncertainty': uncertainty}
 
 
 def get_prediction_delta(b_predict, q_predict):
